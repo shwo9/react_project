@@ -6,13 +6,18 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint /Users/hwsung/Desktop/Web/boiler-plate/index.js --fix"
   },
   "author": "woong",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
+    "cookie-parser": "^1.4.6",
+    "eslint": "^8.4.1",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.1"
   },
   "devDependencies": {
