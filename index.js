@@ -23,12 +23,21 @@ app.get("/", (req, res) => {
 });
 
 // 회원가입
-app.post("api/users/register", (req, res) => {
+app.post("/api/users/register", (req, res) => {
   // 회원가입을 위한 route
   // 회원가입 정보를 client에서 가져와 DB에 넣는 작업.
   const user = new User(req.body);
+  // console.log(user);
+  // {
+  //   name: 'test121',
+  //   email: 'test121@naver.com',
+  //   password: 'test12',
+  //   role: 0,
+  //   _id: new ObjectId("61ba0cab51d634aba67c0336")
+  // }
 
   user.save((err, userInfo) => {
+    console.log(userInfo);
     if (err) return res.json({ success: false, err });
     return res.status(200).json({
       success: true,
@@ -37,7 +46,7 @@ app.post("api/users/register", (req, res) => {
 });
 
 // 로그인
-app.post("api/users/login", (req, res) => {
+app.post("/api/users/login", (req, res) => {
   // 요청한 아이디/비밀번호가 DB에 있는지 확인.
   // 아이디/비밀번호가 맞다면 토큰을 생성.
   User.findOne({ email: req.body.email }, (err, user) => {
@@ -68,7 +77,7 @@ app.post("api/users/login", (req, res) => {
 });
 
 // 인증
-app.get("api/users/auth", auth, (req, res) => {
+app.get("/api/users/auth", auth, (req, res) => {
   res.status(200).json({
     _id: req.user._id,
     isAdmin: req.user.role === 0 ? false : true,
