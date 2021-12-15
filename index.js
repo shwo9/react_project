@@ -37,7 +37,15 @@ app.post("/api/users/register", (req, res) => {
   // }
 
   user.save((err, userInfo) => {
-    console.log(userInfo);
+    // console.log(userInfo);
+    // {
+    //   name: 'test121',
+    //   email: 'test1212@naver.com',
+    //   password: '$2b$10$HVx8z1xSxTPhr3yNx1aK.OXVQ4gIwlyW305g1ScbAvT.kmCGKsAL2',
+    //   role: 0,
+    //   _id: new ObjectId("61ba0cdfd8ac5e12ae47a32e"),
+    //   __v: 0
+    // }
     if (err) return res.json({ success: false, err });
     return res.status(200).json({
       success: true,
